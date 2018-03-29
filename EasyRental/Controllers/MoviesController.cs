@@ -23,13 +23,18 @@ namespace EasyRental.Controllers
             _context.Dispose();
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
-            return View(movies);
+            if (User.IsInRole(RoleName.MovieManager))
+            {
+                return View("List");
+            }
+            
+                return View("ReadOnlyList");
+            
         }
 
-
+        [Authorize(Roles = RoleName.MovieManager)]
         public ActionResult AddNewMovie()
         {
             var genreList = _context.Genres.ToList();
@@ -43,6 +48,7 @@ namespace EasyRental.Controllers
             return View(ViewModel);
         }
         [HttpPost]
+        [Authorize(Roles = RoleName.MovieManager)]
         public ActionResult Save(Movie movie)
         {
 
@@ -80,19 +86,26 @@ namespace EasyRental.Controllers
 
             return RedirectToAction("Index", "Movies");
         }
-
-        public ActionResult Edit(int Id)
+        [Authorize(Roles = RoleName.MovieManager)]
+        public ActionResult Edit(int id)
         {
-            var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(m => m.Id == Id);
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+
             if (movie == null)
             {
                 return HttpNotFound();
             }
 
-            return View(movie);
+            var viewModel = new MovieFormViewModel(movie)
+            {
+                                    
+             GenreList = _context.Genres.ToList()
+            };
+
+            return View("AddNewMovie", viewModel);
         }
 
-        
-       
+
     }
 }

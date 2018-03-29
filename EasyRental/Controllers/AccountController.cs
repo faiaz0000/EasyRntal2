@@ -12,6 +12,8 @@ using EasyRental.Models;
 
 namespace EasyRental.Controllers
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     [Authorize]
     public class AccountController : Controller
     {
@@ -151,10 +153,21 @@ namespace EasyRental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    NID = model.NID
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Temp
+                   /* var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    var  roleManager = new RoleManager<IdentityRole>(roleStore);
+                   await roleManager.CreateAsync(new IdentityRole("MovieManager"));
+                   await UserManager.AddToRolesAsync( user.Id, "MovieManager");*/
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

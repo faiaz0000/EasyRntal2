@@ -64,6 +64,10 @@ namespace EasyRental.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [Display(Name = "National ID")]
+        public string NID { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -31,7 +31,7 @@ namespace EasyRental
          
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-lumen.css",
                       "~/Content/Datatables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
         }

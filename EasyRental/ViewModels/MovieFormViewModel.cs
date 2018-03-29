@@ -15,6 +15,7 @@ namespace EasyRental.ViewModels
         [StringLength(255)]
         public String Name { get; set; }
 
+      
 
         [Display(Name = "Release Date")]
         public DateTime? ReleaseDate { get; set; }

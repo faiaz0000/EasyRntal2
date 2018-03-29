@@ -26,9 +26,11 @@ namespace EasyRental.Dtos
         [Required]
         public int? GenreId { get; set; }
 
-   
+        public GenreDto Genre { get; set; }
 
-        
+
+
+
         public int NumberInStock { get; set; }
 
        

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Data.Entity;
 using System.Net.Http;
 using System.Web.Http;
 using EasyRental.Models;
@@ -24,7 +25,7 @@ namespace EasyRental.Controllers.Api
         [HttpGet]
         public IHttpActionResult GetCustomers()
         {
-            return Ok(_context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>));
+            return Ok(_context.Customers.Include(m=>m.MembershipType).ToList().Select(Mapper.Map<Customer,CustomerDto>));
         }
 
         public IHttpActionResult GetCustomer(int id)
