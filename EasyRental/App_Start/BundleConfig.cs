@@ -15,7 +15,8 @@ namespace EasyRental
                       "~/Scripts/respond.js",
                       
                       "~/Scripts/Datatables/jquery.datatables.js",
-                        "~/Scripts/Datatables/datatables.bootstrap.js"
+                        "~/Scripts/Datatables/datatables.bootstrap.js",
+                        "~/Scripts/typeahead.bundle.js"
 
 
                       ));
@@ -33,6 +34,7 @@ namespace EasyRental
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/Datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }

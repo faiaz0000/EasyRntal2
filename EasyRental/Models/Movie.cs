@@ -20,7 +20,7 @@ namespace EasyRental.Models
         [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
 
-        public int AvilableInStcock { get; set; }
+       
 
         [Display(Name = "Genre")]
         [Required]

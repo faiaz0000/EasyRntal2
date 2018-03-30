@@ -54,9 +54,9 @@ namespace EasyRental
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+             appId: "858859247630518",
+              appSecret: "fc84ad349e9348cc944c950bc3b7fc24");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

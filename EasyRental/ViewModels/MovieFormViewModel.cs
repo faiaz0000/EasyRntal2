@@ -52,7 +52,7 @@ namespace EasyRental.ViewModels
             GenreId = movie.GenreId;
             NumberInStock = movie.NumberInStock;
             NumberAvailable = movie.NumberAvailable;
-            AvilableInStcock = movie.AvilableInStcock;
+            //AvilableInStcock = movie.AvilableInStcock;
             DateAdded = DateTime.Now;
             ReleaseDate = movie.ReleaseDate;
 

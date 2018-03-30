@@ -24,7 +24,7 @@ namespace EasyRental.Migrations
                         Name = c.String(nullable: false, maxLength: 255),
                         ReleaseDate = c.DateTime(nullable: false),
                         DateAdded = c.DateTime(nullable: false),
-                        AvilableInStcock = c.Int(nullable: false),
+                       
                         GenreId = c.Int(nullable: false),
                         NumberInStock = c.Int(nullable: false),
                         NumberAvailable = c.Int(nullable: false),

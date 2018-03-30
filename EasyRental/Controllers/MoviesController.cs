@@ -74,7 +74,7 @@ namespace EasyRental.Controllers
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInDb.Name = movie.Name;
                 movieInDb.GenreId = movie.GenreId;
-                movieInDb.AvilableInStcock = movie.AvilableInStcock;
+              
                 movieInDb.NumberAvailable = movie.NumberAvailable;
                 movieInDb.NumberInStock = movie.NumberInStock;
                 movieInDb.ReleaseDate = movie.ReleaseDate;

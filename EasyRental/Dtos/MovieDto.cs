@@ -20,7 +20,7 @@ namespace EasyRental.Dtos
       
         public DateTime DateAdded { get; set; }
 
-        public int AvilableInStcock { get; set; }
+     
 
        
         [Required]
